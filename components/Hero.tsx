@@ -16,7 +16,7 @@ const Hero = () => {
         </p>
         <CustomButton
           title={"Expolore Cars"}
-          style={"bg-primary-blue px-2 py-1 rounded-full text-white mt-10"}
+          styles={"bg-primary-blue px-2 py-1 rounded-full text-white mt-10"}
           handleClick={handleScroll}
         />
       </div>

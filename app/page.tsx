@@ -2,13 +2,10 @@ import { fetchCars } from "../utils/index";
 import { HomeProps } from "../Types/index";
 import { fuels, yearsOfProduction } from "../constants/index";
 import CarCard from "../components/CarCard";
-// import ShowMore from "../components/ShowMore";
 import CustomFilter from "../components/CustomFillter";
 import SearchBar from "../components/SearchBar";
 import Hero from "../components/Hero";
 import ShowMore from "@/components/ShowMore";
-
-
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
@@ -45,11 +42,12 @@ export default async function Home({ searchParams }: HomeProps) {
                 <CarCard car={car} />
               ))}
             </div>
-            { 
-            <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
-              isNext={(searchParams.limit || 10) > allCars.length}
-            />}
+            {
+              <ShowMore
+                pageNumber={(searchParams.limit || 10) / 10}
+                isNext={(searchParams.limit || 10) > allCars.length}
+              />
+            }
           </section>
         ) : (
           <div className="home__error-container">

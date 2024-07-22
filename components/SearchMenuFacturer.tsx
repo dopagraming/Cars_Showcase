@@ -8,7 +8,6 @@ import {
 } from "@headlessui/react";
 import React, { Fragment, useState } from "react";
 import { SearchManuFacturerProps } from "../Types/index";
-import Image from "next/image";
 import { manufacturers } from "../constants/index";
 const SearchMenuFacturer = ({
   manufacturer,
@@ -24,7 +23,6 @@ const SearchMenuFacturer = ({
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""));
         });
-
   return (
     <div className="search-manufacturer">
       <Combobox>
@@ -42,9 +40,10 @@ const SearchMenuFacturer = ({
             className="search-manufacturer__input"
             placeholder="Volk"
             aria-label="Assignee"
-            displayValue={(manufacturer: string) => manufacturer}
+            value={manufacturer}
             onChange={(event) => {
               setQuery(event.target.value);
+              setManuFacturer(event.target.value);
             }}
           />
           <Transition

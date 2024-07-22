@@ -65,4 +65,3 @@ export async function fetchCars(filters: FilterProps) {
 
   return result;
 }
-  

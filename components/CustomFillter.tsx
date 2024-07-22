@@ -14,7 +14,7 @@ interface customFillterProps {
 }
 
 const CustomFillter = ({ title, options }: customFillterProps) => {
-  const handleUpdateParams = (e: { title: string, value: string }) => {
+  const handleUpdateParams = (e: any) => {
     const newPathName = updateSearchParams(title, e.value.toLowerCase());
     router.push(newPathName);
   };
