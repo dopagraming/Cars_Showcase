@@ -4,7 +4,7 @@ import { CarProps } from "../Types/index";
 import { calculateCarRent } from "../utils/index";
 import CustomButton from "./CustomButton";
 import CarDeatiles from "./CarDeatiles";
-
+import Image from "next/image";
 interface CarCardProps {
   car: CarProps;
 }
@@ -27,8 +27,9 @@ const CarCard = ({ car }: CarCardProps) => {
         </p>
       </div>
       <div className="relative w-full h-40 my-3 object-contain">
-        <img
-          src="./images/hero.png"
+        <Image
+          src="/images/hero.png"
+          fill
           alt="car model"
           className="object-contain"
         />
@@ -37,8 +38,8 @@ const CarCard = ({ car }: CarCardProps) => {
       <div className="relative flex w-full mt-7">
         <div className="flex group-hover:invisible w-full justify-between text-gray">
           <div className="flex flex-col justify-center items-center gap-2">
-            <img
-              src="./images/steering-wheel.svg"
+            <Image
+              src="/images/steering-wheel.svg"
               width={20}
               height={20}
               alt="steering wheel"
@@ -48,8 +49,8 @@ const CarCard = ({ car }: CarCardProps) => {
             </p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <img
-              src="./images/tire.svg"
+            <Image
+              src="/images/tire.svg"
               width={20}
               height={20}
               alt="steering tire"
@@ -57,8 +58,8 @@ const CarCard = ({ car }: CarCardProps) => {
             <p className="text-[14px]">{car.drive.toUpperCase()}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
-            <img
-              src="./images/gas.svg"
+            <Image
+              src="/images/gas.svg"
               width={20}
               height={20}
               alt="steering wheel"

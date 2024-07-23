@@ -18,26 +18,26 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
 
 const SerachBar = () => {
   const router = useRouter();
-  const [menuFacturer, setMenuFacturer] = useState("");
+  const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (model === "" && menuFacturer === "") {
+    if (model === "" && manufacturer === "") {
       return alert("Please fill in the search bar");
     }
-    updateSearchParams(menuFacturer, model);
+    updateSearchParams(manufacturer.toLowerCase(), model.toLowerCase());
   };
-  const updateSearchParams = (menuFacturer: string, model: string) => {
+  const updateSearchParams = (manufacturer: string, model: string) => {
     const searchParams = new URLSearchParams(window.location.search);
     if (model) {
       searchParams.set("model", model);
     } else {
       searchParams.delete("model", model);
     }
-    if (menuFacturer) {
-      searchParams.set("menuFacturer", menuFacturer);
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
     } else {
-      searchParams.delete("menuFacturer", menuFacturer);
+      searchParams.delete("manufacturer", manufacturer);
     }
     const newPathName = `${
       window.location.pathname
@@ -48,8 +48,8 @@ const SerachBar = () => {
     <form className="searchbar" onSubmit={(e) => handleSubmit(e)}>
       <div className="searchbar__item">
         <SearchMenuFacturer
-          manufacturer={menuFacturer}
-          setManuFacturer={setMenuFacturer}
+          manufacturer={manufacturer}
+          setManufacturer={setManufacturer}
         />
         <SearchButton otherClasses={`sm:hidden`} />
       </div>

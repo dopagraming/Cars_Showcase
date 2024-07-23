@@ -11,7 +11,7 @@ import { SearchManuFacturerProps } from "../Types/index";
 import { manufacturers } from "../constants/index";
 const SearchMenuFacturer = ({
   manufacturer,
-  setManuFacturer,
+  setManufacturer,
 }: SearchManuFacturerProps) => {
   const [query, setQuery] = useState("");
   const filteredManuFacture =
@@ -25,7 +25,10 @@ const SearchMenuFacturer = ({
         });
   return (
     <div className="search-manufacturer">
-      <Combobox>
+      <Combobox
+        value={manufacturer}
+        onChange={(value: string) => setManufacturer(value)}
+      >
         <div className="relative w-full">
           <Combobox.Button className="absolute top-[14px]">
             <img
@@ -41,9 +44,10 @@ const SearchMenuFacturer = ({
             placeholder="Volk"
             aria-label="Assignee"
             value={manufacturer}
+            displayValue={(manufacturer: string) => manufacturer}
             onChange={(event) => {
               setQuery(event.target.value);
-              setManuFacturer(event.target.value);
+              setManufacturer(event.target.value);
             }}
           />
           <Transition

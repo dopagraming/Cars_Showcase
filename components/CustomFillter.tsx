@@ -25,8 +25,8 @@ const CustomFillter = ({ title, options }: customFillterProps) => {
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e); // Update the selected option in state
-          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
+          setSelected(e); 
+          handleUpdateParams(e); 
         }}
       >
         <div className="relative w-fit z-10">
